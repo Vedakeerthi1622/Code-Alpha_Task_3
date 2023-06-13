@@ -1,0 +1,33 @@
+function convertFile() {
+    var fileInput = document.getElementById('fileInput');
+    var file = fileInput.files[0];
+    var output = document.getElementById('output');
+
+    if (file && file.type === 'image/jpeg') {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var image = new Image();
+            image.src = e.target.result;
+
+            image.onload = function() {
+                var canvas = document.createElement('canvas');
+                canvas.width = image.width;
+                canvas.height = image.height;
+
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(image, 0, 0);
+
+                var imgData = canvas.toDataURL('image/jpeg');
+
+                var pdf = new jspdf.jsPDF(); // Corrected line
+                pdf.addImage(imgData, 'JPEG', 0, 0);
+                var pdfData = pdf.output('datauristring');
+
+                output.innerHTML = '<a href="' + pdfData + '" download="converted.pdf">Download PDF</a>';
+            };
+        };
+        reader.readAsDataURL(file);
+    } else {
+        output.innerText = 'Please select a JPEG image file.';
+    }
+}
