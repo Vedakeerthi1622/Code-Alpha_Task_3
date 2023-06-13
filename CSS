@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: lightpink;
+    text-align: center;
+    margin-top: 35%;
+}
+
+.my-card {
+    background-color: white;
+    border-radius: 9px;
+    padding: 15px;
+
+
+}
+
+.input-box {
+    font-size: 18px;
+    font-family: "Roboto";
+    margin-left: 30%;
+
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    font-family: "Roboto";
+    color: green;
+    font-weight: bolder;
+
+}
+
+button {
+    margin-top: 35px;
+    background-color: red;
+    height: 45px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 0px;
+    color: white;
+    font-weight: bold;
+    font-family: "Roboto ";
+    font-size: 25px;
+}
+
+#output {
+    margin-top: 20px;
+    white-space: pre-wrap;
+}
